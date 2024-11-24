@@ -24,10 +24,11 @@ if __name__ == "__main__":
         
 
     def encrypt(plaintext,shift):
-        base=ord("A") if plaintext.isupper() else ord("a")
+        
         ciphertext=""
         for t in plaintext:
             if t.isalpha():
+                base=ord("A") if t.isupper() else ord("a")
                 newt=chr(((ord(t)-base)+shift)%26 + base)
                 ciphertext+=newt
             elif ord(t) == 32:
@@ -38,10 +39,11 @@ if __name__ == "__main__":
     
     # To decipher text
     def decrypt(ciphertext,shift):
-        base=ord("A") if ciphertext.isupper() else ord("a")
+        
         plaintext=""
         for t in ciphertext:
             if t.isalpha():
+                base=ord("A") if t.isupper() else ord("a")
                 newt=chr(((ord(t)-base)-shift)%26 + base)
                 plaintext+=newt
             elif ord(t) == 32:
